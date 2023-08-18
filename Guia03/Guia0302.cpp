@@ -1,16 +1,16 @@
 /*
-Guia0301 - v0.0. - __ / __ / _____
+Guia0302 - v0.0. - __ / __ / _____
 Author: __________________________
 Para compilar em uma janela de comandos (terminal):
 No Linux
-: g++ -o Guia0301
-No Windows: g++ -o Guia0301
-./Guia0301.cpp
-Guia0301.cpp
+: g++ -o Guia0302
+No Windows: g++ -o Guia0302
+./Guia0302.cpp
+Guia0302.cpp
 Para executar em uma janela de comandos (terminal):
 No Linux
-: ./Guia0301
-No Windows: Guia0301
+: ./Guia0302
+No Windows: Guia0302
 */
 // lista de dependencias
 #include "karel.hpp"
@@ -73,34 +73,32 @@ move( );
 } // end if
 } // end moveN( )
 /**
-countCommands - Metodo para contar comandos de arquivo.
+countCommands - Funcao para contar comandos de arquivo.
+@return quantidade de comandos
 @param fileName - nome do arquivo
 */
-void countCommands( const char * fileName )
+int countCommands( const char * fileName )
 {
 // definir dados
-char message [80];
 int x
 = 0;
 int length = 0;
-// abrir arquivo para leitura
 std::ifstream archive ( fileName );
 // repetir enquanto houver dados
-archive >> x;
-// tentar ler o primeiro
-while ( ! archive.eof ( ) && x != 0 )
+archive >> x; // tentar ler o primeiro
+while ( ! archive.eof( ) && x != 0 )
 {
-// contar mais um comando lido
+// contar mais um comando
 length = length + 1;
 // tentar ler o proximo
 archive >> x;
 } // end while
 // fechar o arquivo
 archive.close( );
-// informar a quantidade de comandos guardados
-sprintf ( message, "Commands = %d", length );
-show_Text ( message );
+// retornar resultado
+return ( length );
 } // end countCommands( )
+
 }; // end class MyRobot// --------------------------- acao principal
 /**
 Acao principal: executar a tarefa descrita acima.
@@ -115,12 +113,12 @@ int main ( )
 
 world->create ( "" );
 // criar o mundo
-decorateWorld ( "Guia0301.txt" );
+decorateWorld ( "Guia0302.txt" );
 world->show ( );
 // preparar o ambiente para uso
 world->reset ( );
 // limpar configuracoes
-world->read ( "Guia0301.txt" );// ler configuracao atual para o ambiente
+world->read ( "Guia0302.txt" );// ler configuracao atual para o ambiente
 world->show ( );
 // mostrar a configuracao atual
 set_Speed ( 3 );
@@ -131,7 +129,10 @@ MyRobot *robot = new MyRobot( );
 // posicao(x=1,y=1), voltado para direita, com zero marcadores, nome escolhido )
 robot->create ( 1, 1, EAST, 0, "Karel" );
 // executar tarefa
-robot->countCommands ( "Tarefa0301.txt" );
+char message [80];
+sprintf ( message, "Commands = %d",
+robot->countCommands ( "Tarefa0302.txt" ) );
+show_Text ( message );
 // encerrar operacoes no ambiente
 world->close ( );
 // encerrar programa
