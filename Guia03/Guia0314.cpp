@@ -1,16 +1,16 @@
 /*
-Guia0313 - v0.0. - __ / __ / _____
+Guia0314 - v0.0. - __ / __ / _____
 Author: __________________________
 Para compilar em uma janela de comandos (terminal):
 No Linux
-: g++ -o Guia0313
-No Windows: g++ -o Guia0313
-./Guia0313.cpp
-Guia0313.cpp
+: g++ -o Guia0314
+No Windows: g++ -o Guia0314
+./Guia0314.cpp
+Guia0314.cpp
 Para executar em uma janela de comandos (terminal):
 No Linux
-: ./Guia0313
-No Windows: Guia0313
+: ./Guia0314
+No Windows: Guia0314
 */
 // lista de dependencias
 #include "karel.hpp"
@@ -119,7 +119,7 @@ public:
         int comandos[MAX_COMMANDS];
         char message[80];
         // ler quantidade e comandos
-        quantidade = readCommands(comandos, "Tarefa0313.txt");
+        quantidade = readCommands(comandos, "Tarefa0314.txt");
         message[0] = '\0';
         // limpar a mensagem
         sprintf(message, "Commands = %d", quantidade);
@@ -725,12 +725,12 @@ int main()
 
     world->create("");
     // criar o mundo
-    decorateWorld("Guia0313.txt");
+    decorateWorld("Guia0314.txt");
     world->show();
     // preparar o ambiente para uso
     world->reset();
     // limpar configuracoes
-    world->read("Guia0313.txt"); // ler configuracao atual para o ambiente
+    world->read("Guia0314.txt"); // ler configuracao atual para o ambiente
     world->show();
     // mostrar a configuracao atual
     set_Speed(1);
@@ -741,7 +741,7 @@ int main()
     // posicao(x=1,y=1), voltado para direita, com zero marcadores, nome escolhido )
      robot->create(1, 1, EAST, 0, "Karel");
       // reproduzir todos os comandos
-      robot->playActions("Tarefa0313.txt");
+      robot->playActions("Tarefa0314.txt");
     world->close();
     // encerrar programa
     getchar();
