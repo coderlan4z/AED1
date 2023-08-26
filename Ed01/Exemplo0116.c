@@ -1,16 +1,16 @@
 /*
-Exemplo0115 - v0.0. - __ / __ / _____
+Exemplo0116 - v0.0. - __ / __ / _____
 Author: ________________________
 Para compilar em terminal (janela de comandos):
 Linux
-: gcc -o exemplo0115
-exemplo0115.c
-Windows: gcc -o exemplo0115
-exemplo0115.c
+: gcc -o exemplo0116
+exemplo0116.c
+Windows: gcc -o exemplo0116
+exemplo0116.c
 Para executar em terminal (janela de comandos):
 Linux
-: ./exemplo0115
-Windows: exemplo0115
+: ./exemplo0116
+Windows: exemplo0116
 */
 // dependencias
 #include <stdio.h>
@@ -26,23 +26,24 @@ Windows: exemplo0115
 #include "io.h"
 // para definicoes propria
 
-int main()
-{
+int main(){
     float base = 0.0;
+    float perimeter = 0.0;
     float height = 0.0;
     float area = 0.0;
 
-    printf("Entre com um valor real para o lado do triangulo: \n");
+    printf("Entre com um valor inteiro para o lado do triangulo: \n");
     scanf("%f", &base);
     getchar();
 
-    printf("Entre com um valor real para o outro lado do triangulo: \n");
-    scanf("%f", &height);
-    getchar();
+    height = (base * sqrt(3))/ 2;
+    perimeter = base * 3;
+    area = (base * height) / 2;
 
-    area = ((base / 2) * (height / 2)) / 2;
-
-    printf("A area do triangulo e: %f\n", area);
+    printf("A altura do triangulo e: %0.2f\n", height);
+    printf("O perimetro do triangulo e: %0.2f\n", perimeter);
+    printf("A area do triangulo e: %0.2f\n", area);
 
     return 0;
+
 }

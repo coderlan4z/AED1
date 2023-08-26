@@ -1,16 +1,16 @@
 /*
-Exemplo0115 - v0.0. - __ / __ / _____
+Exemplo0119 - v0.0. - __ / __ / _____
 Author: ________________________
 Para compilar em terminal (janela de comandos):
 Linux
-: gcc -o exemplo0115
-exemplo0115.c
-Windows: gcc -o exemplo0115
-exemplo0115.c
+: gcc -o exemplo0119
+exemplo0119.c
+Windows: gcc -o exemplo0119
+exemplo0119.c
 Para executar em terminal (janela de comandos):
 Linux
-: ./exemplo0115
-Windows: exemplo0115
+: ./exemplo0119
+Windows: exemplo0119
 */
 // dependencias
 #include <stdio.h>
@@ -26,23 +26,20 @@ Windows: exemplo0115
 #include "io.h"
 // para definicoes propria
 
-int main()
-{
-    float base = 0.0;
-    float height = 0.0;
+int main (){
+    float radius = 0.0;
     float area = 0.0;
 
-    printf("Entre com um valor real para o lado do triangulo: \n");
-    scanf("%f", &base);
+    printf("Entre com um valor real para o raio do circulo: \n");
+    scanf("%f", &radius);
     getchar();
 
-    printf("Entre com um valor real para o outro lado do triangulo: \n");
-    scanf("%f", &height);
-    getchar();
+    radius = radius / 2;
+    area = M_PI * pow(radius, 2);
+    area = area /2;
 
-    area = ((base / 2) * (height / 2)) / 2;
-
-    printf("A area do triangulo e: %f\n", area);
+    printf("A area do circulo e: %0.2f\n", area);
 
     return 0;
+
 }
