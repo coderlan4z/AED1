@@ -33,9 +33,8 @@ int main(){
 
     printf("Entre com um valor real para o volume da esfera: \n");
     scanf("%f", &volume);
-    getchar();
-
-    volume = volume * 0.75;
+    system("clear");
+    
     radius = cbrt(volume / (4 * M_PI));
     area   = 4 * M_PI * pow(radius, 2);
 
