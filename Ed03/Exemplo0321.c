@@ -1,5 +1,5 @@
 /*
-Exemplo0310 - v0.0. - __ / __ / _____
+Exemplo0321 - v0.0. - __ / __ / _____
 Author: Guilherme Lana
 */
 // dependencias
@@ -277,6 +277,312 @@ void method_10(void)
     IO_pause("Apertar ENTER para continuar");
 } // end method_10 ( )
 
+void method_11(void)
+{
+    int i = 0;
+    char palavra[80];
+
+    printf("Digite uma palavra: ");
+    scanf("%s", palavra);
+    getchar();
+
+    for (i = 0; i < strlen(palavra); i = i + 1)
+    {
+        if (palavra[i] >= 'A' && palavra[i] <= 'Z')
+        {
+            printf("%c", palavra[i]);
+        }
+    }
+    printf("\n");
+
+    IO_pause("\nApertar ENTER para continuar");
+} // end method_11
+
+void method_12(void)
+{
+    int i = 0;
+    int count = 0;
+    char palavra[80];
+
+    printf("Digite uma palavra: ");
+    scanf("%s", palavra);
+    getchar();
+
+    for (i = 0; i < strlen(palavra); i = i + 1)
+    {
+        if (palavra[i] >= 'A' && palavra[i] <= 'Z')
+        {
+            printf("%c", palavra[i]);
+            count = count + 1;
+        }
+    }
+    printf("\nO numero de maiusculas e': %d", count);
+    printf("\n");
+
+    IO_pause("\nApertar ENTER para continuar");
+} // end method_12
+
+void method_13(void)
+{
+    int i = 0;
+    int count = 0;
+    int tamanho = 0;
+    char palavra[80];
+
+    printf("Digite uma palavra: ");
+    scanf("%s", palavra);
+    getchar();
+
+    tamanho = strlen(palavra) - 1;
+
+    for (i = tamanho; i >= 0; i = i - 1)
+    {
+        if (palavra[i] >= 'A' && palavra[i] <= 'Z')
+        {
+            printf("%c", palavra[i]);
+            count = count + 1;
+        }
+    }
+    printf("\nO numero de maiusculas e': %d", count);
+    printf("\n");
+    IO_pause("\nApertar ENTER para continuar");
+} // end method_13
+
+void method_14(void)
+{
+    int i = 0;
+    int count = 0;
+    char palavra[80];
+
+    printf("Digite uma palavra: ");
+    scanf("%s", palavra);
+    getchar();
+
+    for (i = 0; i < strlen(palavra); i = i + 1)
+    {
+        if (palavra[i] >= 'A' && palavra[i] <= 'Z' || palavra[i] >= 'a' && palavra[i] <= 'z')
+        {
+            printf("%c", palavra[i]);
+            count = count + 1;
+        }
+    }
+    printf("\nO numero de letras e': %d", count);
+    printf("\n");
+    IO_pause("\nApertar ENTER para continuar");
+} // end method_14
+
+void method_15(void)
+{
+    int i = 0;
+    int count = 0;
+    int tamanho = 0;
+    char palavra[80];
+
+    printf("Digite uma palavra: ");
+    scanf("%s", palavra);
+    getchar();
+
+    tamanho = strlen(palavra) - 1;
+
+    for (i = tamanho; i >= 0; i = i - 1)
+    {
+        if (palavra[i] >= '0' && palavra[i] <= '9')
+        {
+            printf("%c", palavra[i]);
+            count = count + 1;
+        }
+    }
+    printf("\ntamanho: %d", count);
+    printf("\n");
+
+    IO_pause("\nApertar ENTER para continuar");
+} // end method_15
+
+void method_16(void)
+{
+    int i = 0;
+    int count = 0;
+    char palavra[80];
+
+    printf("Digite uma palavra: ");
+    scanf("%s", palavra);
+    getchar();
+
+    for (i = 0; i < strlen(palavra); i = i + 1)
+    {
+        if (!(palavra[i] >= 'A' && palavra[i] <= 'Z' ||
+              palavra[i] >= 'a' && palavra[i] <= 'z' ||
+              palavra[i] >= '0' && palavra[i] <= '9'))
+        {
+            printf("%c", palavra[i]);
+            count = count + 1;
+        }
+    }
+    printf("\n%d", count);
+    IO_pause("Aperte ENTER para continuar");
+} // end method_16
+
+void method_17(void)
+{
+    char num[80];
+    int i, x, n, a, b, count = 0;
+
+    printf("Digite dois valores inteiros para definir um intervalo: \n");
+    scanf("%d", &a);
+    getchar();
+    scanf("%d", &b);
+    getchar();
+    printf("Digite a quantidade de valores a serem testados: \n");
+    scanf("%d", &n);
+    getchar();
+
+    for (i = 0; i < n; i = i + 1)
+    {
+        printf("Digite o valor %d: ", i + 1);
+        scanf("%d", &x);
+        getchar();
+        if (x % 5 == 0 && x >= a && x <= b)
+        {
+            sprintf(num + strlen(num), "\n%d", x);
+            count = count + 1;
+        }
+    }
+    printf("Quantidade de valores múltiplos de 5 no intervalo [%d:%d]: %d\n", a, b, count);
+    printf("Os numeros multiplos de 5 no intervalo sao: %s\n", num);
+
+    IO_pause("Aperte ENTER para continuar");
+} // end method_17
+
+void method_18(void)
+{
+    char num[80];
+    int i, x, n, a, b, count = 0;
+
+    printf("Digite dois valores inteiros para definir um intervalo: \n");
+    scanf("%d", &a);
+    getchar();
+    scanf("%d", &b);
+    getchar();
+    printf("Digite a quantidade de valores a serem testados: \n");
+    scanf("%d", &n);
+    getchar();
+
+    for (i = 0; i < n; i = i + 1)
+    {
+        printf("Digite o valor %d: ", i + 1);
+        scanf("%d", &x);
+        getchar();
+        if (x % 3 == 0 && x % 5 != 0 && x >= a && x <= b)
+        {
+            sprintf(num + strlen(num), "\n%d", x);
+            count = count + 1;
+        }
+    }
+    printf("Quantidade de valores múltiplos de 3 e nao multiplos de 5 no intervalo [%d:%d]: %d\n", a, b, count);
+    printf("Os numeros multiplos de 3 e nao multiplos de 5 no intervalo sao: %s\n", num);
+
+    IO_pause("Aperte ENTER para continuar");
+} // end method_18
+
+void method_19(void)
+{
+    int i = 0;
+    int n = 0;
+    float x = 0;
+    float a = 0.0;
+    float b = 0.0;
+    int count = 0;
+    char num[80];
+
+    do
+    {
+        printf("Digite dois valores reais para um intervalo: \n");
+        scanf("%f", &a);
+        getchar();
+        scanf("%f", &b);
+        getchar();
+    } while (a > b);
+    printf("Digite o valor de numeros a ser testado: \n");
+    scanf("%d", &n);
+    getchar();
+
+    for (i = 0; i < n; i = i + 1)
+    {
+        printf("Digite o valor %d: ", i + 1);
+        scanf("%f", &x);
+        getchar();
+        if (x >= a && x <= b && ((int)x) % 2 != 0)
+        {
+            sprintf(num + strlen(num), "\n%.2f", x);
+            count = count + 1;
+        }
+    }
+    printf("A quantidade de números que são ímpares e pertencem ao intervalo: %d\n", count);
+    printf("Os numeros impares eh:%s\n", num);
+
+    IO_pause("Aperte ENTER para continuar");
+} // end method_20
+
+void method_20(void)
+{
+    int i = 0;
+    int n = 0;
+    float x = 0;
+    float a = 0.0;
+    float b = 0.0;
+    int count = 0;
+    char num[80] = ""; // Inicializa a string vazia
+
+    do
+    {
+        printf("Digite dois valores reais para um intervalo (a e b): \n");
+        scanf("%f %f", &a, &b);
+        getchar();
+    } while (a > 0 && b < 1);
+
+    printf("Digite o valor de números a serem testados: \n");
+    scanf("%d", &n);
+    getchar();
+
+    for (i = 0; i < n; i++)
+    {
+        printf("Digite o valor %d: ", i + 1);
+        scanf("%f", &x);
+        getchar();
+        if (x - ((int)x) <= a || x - ((int)x) >= b)
+        {
+            sprintf(num + strlen(num), " %.2f", x);
+            count = count + 1;
+        }
+    }
+
+    printf("A quantidade de números cujas partes fracionárias não pertencem ao intervalo: %d\n", count);
+    printf("Os números cujas partes fracionárias não pertencem ao intervalo:%s\n", num);
+
+    IO_pause("Aperte ENTER para continuar");
+}// end method_20
+
+void extra01(void)
+{
+    char linha[80];
+
+    printf("Digite uma linha de texto: ");
+    fgets(linha, sizeof(linha), stdin);
+
+    printf("Símbolos não alfanuméricos na linha: ");
+    for (int i = 0; linha[i] != '\0'; i++)
+    {
+        if (!((linha[i] >= 'A' && linha[i] <= 'Z') || (linha[i] >= 'a' && linha[i] <= 'z') || (linha[i] >= '0' && linha[i] <= '9')))
+        {
+            printf("%c", linha[i]);
+        }
+    }
+
+    printf("\n");
+
+    IO_printf("Aperte ENTER para continuar");
+}// end extra01
+
 /** Funcao principal.
     @ return codigo de encerramento
 */
@@ -288,7 +594,7 @@ int main()
     do
     {
         // identificar
-        IO_id("EXEMPLO0310 - Programa - v0.0");
+        IO_id("EXEMPLO0321 - Programa - v0.0");
         // ler do teclado
         IO_println("Opcoes");
         IO_println("0 - parar");
@@ -302,6 +608,17 @@ int main()
         IO_println("8 - repeticao com intervalos");
         IO_println("9 - repeticao com intervalos (melhor)");
         IO_println("10 - repeticao com confirmacao");
+        IO_println("11 - mostrar maiuscula");
+        IO_println("12 - mostrar maiuscula e contar");
+        IO_println("13 - mostrar maiuscula e contar (do fim para o incio)");
+        IO_println("14 - mostrar e contar todos os caracteres que forem letras");
+        IO_println("15 - mostrar a palavra ao contrario");
+        IO_println("16 - mostrar e contar tudo que nao for digito e letra");
+        IO_println("17 - method_17");
+        IO_println("18 - method_18");
+        IO_println("19 - method_19");
+        IO_println("20 - method_20");
+        IO_println("21 - extra01");
         IO_println("");
         x = IO_readint("Entrar com uma opcao: ");
         // testar valor
@@ -340,10 +657,43 @@ int main()
         case 10:
             method_10();
             break;
+        case 11:
+            method_11();
+            break;
+        case 12:
+            method_12();
+            break;
+        case 13:
+            method_13();
+            break;
+        case 14:
+            method_14();
+            break;
+        case 15:
+            method_15();
+            break;
+        case 16:
+            method_16();
+            break;
+        case 17:
+            method_17();
+            break;
+        case 18:
+            method_18();
+            break;
+        case 19:
+            method_19();
+            break;
+        case 20:
+            method_20();
+            break;
+        case 21:
+            extra01();
+            break;
         default:
-            IO_pause(IO_concat("Valor diferente das opcoes [0,1,2,3,4,5,6,7,8,9,10] (",
+            IO_pause(IO_concat("Valor diferente das opcoes [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21] (",
                                IO_concat(IO_toString_d(x), ")")));
-            } // end switch
+        } // end switch
     } while (x != 0);
     // encerrar
     IO_pause("Apertar ENTER para terminar");
@@ -367,3 +717,4 @@ int main()
   01. ( OK )
   identificacao de programa
   */
+

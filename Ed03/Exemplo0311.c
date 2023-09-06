@@ -1,5 +1,5 @@
 /*
-Exemplo0310 - v0.0. - __ / __ / _____
+Exemplo0311 - v0.0. - __ / __ / _____
 Author: Guilherme Lana
 */
 // dependencias
@@ -277,6 +277,25 @@ void method_10(void)
     IO_pause("Apertar ENTER para continuar");
 } // end method_10 ( )
 
+void method_11(void)
+{
+    int i = 0;
+    char palavra[80];
+
+    printf("Digite uma palavra: ");
+    scanf("%s", palavra);
+    getchar();
+
+    for (i = 0; i < strlen(palavra); i = i + 1)
+    {
+        if (palavra[i] >= 'A' && palavra[i] <= 'Z')
+        {
+            printf("%c", palavra[i]);
+        }
+    }
+    printf("\n");
+}
+
 /** Funcao principal.
     @ return codigo de encerramento
 */
@@ -288,7 +307,7 @@ int main()
     do
     {
         // identificar
-        IO_id("EXEMPLO0310 - Programa - v0.0");
+        IO_id("EXEMPLO0311 - Programa - v0.0");
         // ler do teclado
         IO_println("Opcoes");
         IO_println("0 - parar");
@@ -302,6 +321,7 @@ int main()
         IO_println("8 - repeticao com intervalos");
         IO_println("9 - repeticao com intervalos (melhor)");
         IO_println("10 - repeticao com confirmacao");
+        IO_println("11 - mostrar maiuscula");
         IO_println("");
         x = IO_readint("Entrar com uma opcao: ");
         // testar valor
@@ -340,10 +360,13 @@ int main()
         case 10:
             method_10();
             break;
+        case 11:
+            method_11();
+            break;
         default:
-            IO_pause(IO_concat("Valor diferente das opcoes [0,1,2,3,4,5,6,7,8,9,10] (",
+            IO_pause(IO_concat("Valor diferente das opcoes [0,1,2,3,4,5,6,7,8,9,10,11] (",
                                IO_concat(IO_toString_d(x), ")")));
-            } // end switch
+        } // end switch
     } while (x != 0);
     // encerrar
     IO_pause("Apertar ENTER para terminar");

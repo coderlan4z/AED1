@@ -127,7 +127,7 @@ void IO_flush ( )
 {
 //  fflush ( stdin );   // para Windows - OBS: NAO RECOMENDADO !
                         // para Linux   - OBS: NAO FUNCIONA    !
-    int  x = 0;         // compatível com o retorno de getchar()
+    int  x = 0;         // compatï¿½vel com o retorno de getchar()
     do { x = getchar( ); } while ( x != EOF && x != '\n' );
     clearerr ( stdin ); // reiniciar o estado de EOF
 } // end IO_flush ( )
