@@ -14,8 +14,342 @@ void method_00(void)
     // nao faz nada
 } // end method_00 ( )
 
+void method_11()
+{
+    int quantidade = 0;
+    int contador = 0;
+    int controle = 1;
+    int x = 0;
+    int y = 0;
+    int valorfora = 0;
 
+    printf("Entre com o inicio do intervalo: ");
+    scanf("%d", &x);
+    getchar();
+    printf("Entre com o fim do intervalo: ");
+    scanf("%d", &y);
+    getchar();
 
+    printf("Entre com a quantidade de valores: ");
+    scanf("%d", &quantidade);
+    getchar();
+
+    while (controle <= quantidade)
+    {
+        int valor = 0;
+        printf("Digite o valor %d:", controle);
+        scanf("%d", &valor);
+        getchar();
+
+        if (valor >= x && valor <= y)
+        {
+            contador = contador + 1;
+        }
+        controle = controle + 1;
+    }
+
+    valorfora = quantidade - contador;
+
+    printf("\n");
+    printf("A quantidade de valores dentro do intervalo [%d,%d] eh: %d\n", x, y, contador);
+    printf("A quantidade de valores fora do intervalo [%d,%d] eh: %d\n", x, y, valorfora);
+
+    IO_pause("Apertar ENTER para continuar");
+} // end method_11
+
+void method_12()
+{
+    char string[100];
+    int contador = 0;
+    int controle = 1;
+    int i = 0;
+
+    printf("Entre com uma sequencia de caracteres: ");
+    scanf("%s", string);
+    getchar();
+
+    for (i = 0; i <= strlen(string); i = i + 1)
+    {
+        if (string[i] > 'K' && string[i] < 'Z')
+        {
+            contador = contador + 1;
+        }
+    }
+
+    printf("A quantidade de caracteres maiores que 'K' eh: %d\n", contador);
+
+    IO_pause("Apertar ENTER para continuar");
+
+} // end method_12
+
+int maiuscula(char string[])
+{
+    int contador = 0;
+    int i = 0;
+
+    for (i = 0; i < strlen(string); i = i + 1)
+    {
+        if (string[i] >= 'K' && string[i] <= 'Z')
+        {
+            contador = contador + 1;
+        }
+    }
+    return (contador);
+}
+
+void method_13()
+{
+    char string[100];
+
+    printf("Digite uma sequencia de caracteres: ");
+    scanf("%s", string);
+    getchar();
+
+    int quantidade = maiuscula(string);
+
+    printf("A quantidade de caracteres maiusculos maiores que 'K' eh: %d\n", quantidade);
+
+    IO_pause("Apertar ENTER para continuar");
+} //  end method_13
+
+void mostrarMaiusculas(char string[], char mostrar[])
+{
+    int contador = 0;
+    int i = 0;
+
+    for (i = 0; i < strlen(string); i = i + 1)
+    {
+        if (string[i] >= 'K' && string[i] <= 'Z')
+        {
+            mostrar[contador] = string[i];
+            contador = contador + 1;
+        }
+    }
+    mostrar[contador] = '\0';
+}
+
+void method_14()
+{
+    char string[100];
+
+    printf("Digite uma sequencia de caracteres: ");
+    scanf("%s", string);
+    getchar();
+
+    char mostrar[100];
+    mostrarMaiusculas(string, mostrar);
+
+    printf("Os caracteres maiusculos maiores que 'K' sao: %s\n", mostrar);
+
+    IO_pause("Apertar ENTER para continuar");
+} // end method_14
+
+void mostrarMaiusculasEminusculas(char string[], char mostrar[])
+{
+    int contador = 0;
+    int i = 0;
+
+    for (i = 0; i < strlen(string); i = i + 1)
+    {
+        if (string[i] >= 'K' && string[i] <= 'Z' || string[i] > 'k' && string[i] < 'z')
+        {
+            mostrar[contador] = string[i];
+            contador = contador + 1;
+        }
+    }
+    mostrar[contador] = '\0';
+}
+void method_15()
+{
+    char string[100];
+
+    printf("Digite uma sequencia de caracteres: ");
+    scanf("%s", string);
+    getchar();
+
+    char mostrar[100];
+    mostrarMaiusculasEminusculas(string, mostrar);
+
+    printf("Os caracteres maiusculos maiores que 'K' e minusculos menores que 'z' sao: %s\n", mostrar);
+
+    IO_pause("Apertar ENTER para continuar");
+} // end method_15
+
+void mostrarMaiusculasEminusculasComEspaco(char string[], char mostrar[])
+{
+    int contador = 0;
+
+    for (int i = 0; i < strlen(string); i++)
+    {
+        if ((string[i] >= 'A' && string[i] <= 'Z') || (string[i] >= 'a' && string[i] <= 'z'))
+        {
+            mostrar[contador] = string[i];
+            contador++;
+            mostrar[contador] = ' ';
+            contador++;
+        }
+    }
+
+    mostrar[contador] = '\0';
+}
+
+void method_16()
+{
+    char string[100];
+
+    printf("Digite uma sequência de caracteres: ");
+    scanf("%s", string);
+    getchar();
+
+    char mostrar[200];
+    mostrarMaiusculasEminusculasComEspaco(string, mostrar);
+
+    printf("Os caracteres maiúsculos e minúsculos com espaços são: %s\n", mostrar);
+
+    IO_pause("Apertar ENTER para continuar");
+} // end method_16
+
+int contarDigitosImpar(char string[])
+{
+    int contador = 0;
+    int i = 0;
+
+    for (i = 0; i < strlen(string); i = i + 1)
+    {
+        if (string[i] >= '0' && string[i] <= '9' && string[i] % 2 != 0)
+        {
+            contador = contador + 1;
+        }
+    }
+    return (contador);
+}
+
+void method_17()
+{
+    char string[100];
+
+    printf("Digite uma sequencia de caracteres: ");
+    scanf("%s", string);
+    getchar();
+
+    int quantidade = contarDigitosImpar(string);
+
+    printf("A quantidade de caracteres impares eh: %d\n", quantidade);
+
+    IO_pause("Apertar ENTER para continuar");
+} //  end method_17
+
+void letrasEnumeros(char string[], char mostrar[])
+{
+    int contador = 0;
+    int i = 0;
+
+    for (i = 0; i < strlen(string); i = i + 1)
+    {
+        if (string[i] >= 'A' && string[i] <= 'Z' || string[i] >= 'a' && string[i] <= 'z' || string[i] >= '0' && string[i] <= '9')
+        {
+            mostrar[contador] = string[i];
+            contador = contador + 1;
+        }
+    }
+    mostrar[contador] = '\0';
+}
+void method_18()
+{
+    char string[100];
+
+    printf("Digite uma sequencia de caracteres: ");
+    scanf("%s", string);
+    getchar();
+
+    char mostrar[100];
+    letrasEnumeros(string, mostrar);
+
+    printf("As letras e numeros sao: %s\n", mostrar);
+
+    IO_pause("Apertar ENTER para continuar");
+} // end method_18
+
+void letrasEnumerosSeparados(char string[], char mostrar[])
+{
+    int contador = 0;
+    int i = 0;
+
+    for (i = 0; i < strlen(string); i = i + 1)
+    {
+        if (string[i] >= 'A' && string[i] <= 'Z' || string[i] >= 'a' && string[i] <= 'z' || string[i] >= '0' && string[i] <= '9')
+        {
+            mostrar[contador] = string[i];
+            contador = contador + 1;
+            mostrar[contador] = ' ';
+            contador = contador + 1;
+        }
+    }
+    mostrar[contador] = '\0';
+}
+void method_19()
+{
+    char string[100];
+
+    printf("Digite uma sequencia de caracteres: ");
+    scanf("%s", string);
+    getchar();
+
+    char mostrar[100];
+    letrasEnumerosSeparados(string, mostrar);
+
+    printf("As letras e numeros separados por espaco sao: %s\n", mostrar);
+
+    IO_pause("Apertar ENTER para continuar");
+} // end method_19
+
+int contarSimbolosAlfanumericos(const char palavra[], char mostrar[])
+{
+    int contador = 0;
+    for (int i = 0; palavra[i] != '\0'; i++)
+    {
+        if ((palavra[i] >= 'A' && palavra[i] <= 'Z') ||
+            (palavra[i] >= 'a' && palavra[i] <= 'z') ||
+            (palavra[i] >= '0' && palavra[i] <= '9'))
+        {
+            mostrar[contador] = palavra[i];
+            contador++;
+            mostrar[contador] = ' ';
+            contador++;
+        }
+    }
+    mostrar[contador] = '\0';
+    return contador / 2; // Retorna a contagem de símbolos alfanuméricos
+}
+
+void method_20()
+{
+    int totalAcumulado = 0;
+    int quantidadePalavras;
+
+    printf("Quantas palavras você deseja inserir? ");
+    scanf("%d", &quantidadePalavras);
+    getchar(); // Para consumir a nova linha deixada pelo scanf
+
+    for (int i = 0; i < quantidadePalavras; i++)
+    {
+        char palavra[100]; // Tamanho máximo da palavra definido como 100, você pode ajustá-lo conforme necessário
+        char mostrar[200]; // Aumentado para acomodar os espaços
+
+        printf("Digite a palavra %d: ", i + 1);
+        scanf("%s", palavra);
+        getchar(); // Para consumir a nova linha deixada pelo scanf
+
+        int simbolosAlfanumericos = contarSimbolosAlfanumericos(palavra, mostrar);
+        printf("Os símbolos alfanuméricos na palavra %d são: %s\n", i + 1, mostrar);
+
+        totalAcumulado += simbolosAlfanumericos;
+    }
+    printf("\n");
+    printf("O total acumulado de símbolos alfanuméricos em todas as palavras é: %d\n", totalAcumulado);
+
+    IO_pause("Apertar ENTER para continuar");
+}
 
 int main()
 {
@@ -46,6 +380,9 @@ int main()
         // testar valor
         switch (x)
         {
+        case 0:
+            method_00();
+            break;
         case 1:
             method_11();
             break;
@@ -77,10 +414,10 @@ int main()
             method_20();
             break;
         case 11:
-            extra01();
+            //    extra01();
             break;
         case 12:
-            extra02();
+            //  extra02();
             break;
         default:
             IO_pause(IO_concat("Valor diferente das opcoes [0,1,2,3,4,5,6,7,8,9,10,11,12] (",
