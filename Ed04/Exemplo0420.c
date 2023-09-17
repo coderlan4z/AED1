@@ -319,7 +319,7 @@ int contarSimbolosAlfanumericos(const char palavra[], char mostrar[])
         }
     }
     mostrar[contador] = '\0';
-    return contador / 2; // Retorna a contagem de símbolos alfanuméricos
+    return contador / 2; 
 }
 
 void method_20()
@@ -329,16 +329,16 @@ void method_20()
 
     printf("Quantas palavras você deseja inserir? ");
     scanf("%d", &quantidadePalavras);
-    getchar(); // Para consumir a nova linha deixada pelo scanf
+    getchar(); 
 
     for (int i = 0; i < quantidadePalavras; i++)
     {
-        char palavra[100]; // Tamanho máximo da palavra definido como 100, você pode ajustá-lo conforme necessário
-        char mostrar[200]; // Aumentado para acomodar os espaços
+        char palavra[100]; 
+        char mostrar[200]; 
 
         printf("Digite a palavra %d: ", i + 1);
         scanf("%s", palavra);
-        getchar(); // Para consumir a nova linha deixada pelo scanf
+        getchar(); 
 
         int simbolosAlfanumericos = contarSimbolosAlfanumericos(palavra, mostrar);
         printf("Os símbolos alfanuméricos na palavra %d são: %s\n", i + 1, mostrar);
@@ -347,6 +347,79 @@ void method_20()
     }
     printf("\n");
     printf("O total acumulado de símbolos alfanuméricos em todas as palavras é: %d\n", totalAcumulado);
+
+    IO_pause("Apertar ENTER para continuar");
+} // end method_20
+
+void extra01()
+{
+    int numSequencias;
+    int totalSimbolos = 0;
+
+    printf("Digite a quantidade de sequências a serem lidas: ");
+    scanf("%d", &numSequencias);
+    getchar(); 
+
+    for (int i = 0; i < numSequencias; i++)
+    {
+        char sequencia[1000]; 
+
+        printf("Digite a sequência de caracteres %d: ", i + 1);
+        fgets(sequencia, sizeof(sequencia), stdin);
+
+        for (int j = 0; sequencia[j] != '\0'; j++)
+        {
+            char c = sequencia[j];
+            if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') || c == ' ')
+            {
+                totalSimbolos++;
+            }
+        }
+    }
+    printf("Total de símbolos alfanuméricos em todas as palavras: %d\n", totalSimbolos);
+
+    IO_pause("Apertar ENTER para continuar");
+}
+
+int contarDigitos(const char *sequencia)
+{
+    int contador = 0;
+    for (int i = 0; sequencia[i] != '\0'; i = i + 1)
+    {
+        if (sequencia[i] >= '0' && sequencia[i] <= '9')
+        {
+            contador++;
+        }
+    }
+    return contador;
+}
+void extra02()
+{
+    char sequencia1[100]; 
+    char sequencia2[100];
+
+    printf("Digite a primeira sequência de caracteres: ");
+    scanf("%s", sequencia1);
+    getchar();
+    printf("Digite a segunda sequência de caracteres: ");
+    scanf("%s", sequencia2);
+    getchar();
+
+    int digitosNaSequencia1 = contarDigitos(sequencia1);
+    int digitosNaSequencia2 = contarDigitos(sequencia2);
+
+    if (digitosNaSequencia1 > digitosNaSequencia2)
+    {
+        printf("A primeira sequência tem mais dígitos.\n");
+    }
+    else if (digitosNaSequencia2 > digitosNaSequencia1)
+    {
+        printf("A segunda sequência tem mais dígitos.\n");
+    }
+    else
+    {
+        printf("As duas sequências têm a mesma quantidade de dígitos.\n");
+    }
 
     IO_pause("Apertar ENTER para continuar");
 }
@@ -414,10 +487,10 @@ int main()
             method_20();
             break;
         case 11:
-            //    extra01();
+            extra01();
             break;
         case 12:
-            //  extra02();
+             extra02();
             break;
         default:
             IO_pause(IO_concat("Valor diferente das opcoes [0,1,2,3,4,5,6,7,8,9,10,11,12] (",
