@@ -181,7 +181,7 @@ void mostrarMaiusculasEminusculasComEspaco(char string[], char mostrar[])
 
     for (int i = 0; i < strlen(string); i++)
     {
-        if ((string[i] >= 'A' && string[i] <= 'Z') || (string[i] >= 'a' && string[i] <= 'z'))
+        if ((string[i] >= 'K' && string[i] <= 'Z') || (string[i] >= 'k' && string[i] <= 'z'))
         {
             mostrar[contador] = string[i];
             contador++;
