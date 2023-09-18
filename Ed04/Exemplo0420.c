@@ -185,8 +185,6 @@ void mostrarMaiusculasEminusculasComEspaco(char string[], char mostrar[])
         {
             mostrar[contador] = string[i];
             contador++;
-            mostrar[contador] = ' ';
-            contador++;
         }
     }
 
