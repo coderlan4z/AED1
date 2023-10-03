@@ -1,1 +1,0 @@
-Contém 2 arquivos, um com os exercícios até o 10 e o outro com os do 10 em diante.

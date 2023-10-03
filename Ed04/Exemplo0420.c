@@ -159,6 +159,7 @@ void mostrarMaiusculasEminusculas(char string[], char mostrar[])
     }
     mostrar[contador] = '\0';
 }
+
 void method_15()
 {
     char string[100];
