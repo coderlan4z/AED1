@@ -174,23 +174,233 @@ void method_0716()
 
     IO_pause("Aperte ENTER para continuar");
 }
+void method0717(int x)
+{
+    double valor, soma = 0.0;
+    FILE *arquivo = fopen("0714.txt", "rt");
+    int cont = 0;
+    while (fscanf(arquivo, "%lf", &valor) == 1)
+    {
+        cont++;
+    }
+
+    if (cont >= x)
+    {
+        rewind(arquivo);
+
+        for (int i = 0; i < x; i++)
+        {
+            fscanf(arquivo, "%lf", &valor);
+            soma += valor;
+        }
+
+        fclose(arquivo);
+
+        FILE *arquivoRes = fopen("RESULTADO07.TXT", "a");
+
+        fprintf(arquivoRes, "Quantidade: %d\nResultado: %.10lf\n", x, soma);
+
+        fclose(arquivoRes);
+    }
+    else
+    {
+        printf("Digite um número menor ou igual a %d: ", cont);
+        fclose(arquivo);
+    }
+}
 void method_0717()
 {
+    int x;
+    printf("Digite um valor inteiro: \n");
+    scanf("%d", &x);
+    getchar();
+    method0717(x);
+
+    IO_pause("Aperte ENTER para continuar");
 }
+int method0718(int n)
+{
+    if (n <= 0)
+    {
+        return 0;
+    }
+    else if (n == 1 || n == 2)
+    {
+        return 1;
+    }
+    else
+    {
+        return method0718(n - 1) + method0718(n - 2);
+    }
+}
+
 void method_0718()
 {
+    FILE *arquivo = fopen("RESULTADO08.TXT", "wt");
+    if (arquivo == NULL)
+    {
+        printf("Erro ao abrir o arquivo.\n");
+        return;
+    }
+
+    int x;
+    printf("Digite um valor inteiro: \n");
+    scanf("%d", &x);
+    getchar();
+
+    int i = 0, n = 1;
+    while (i < x)
+    {
+        int termo = method0718(n);
+        if (termo % 2 == 0)
+        {
+            fprintf(arquivo, "%d\n", termo);
+            i++;
+        }
+        n++;
+    }
+    fclose(arquivo);
+
+    IO_pause("Aperte ENTER para continuar");
+}
+int contar(const char *cadeia)
+{
+    int contagem = 0;
+
+    while (*cadeia != '\0')
+    {
+        if (*cadeia >= 'a' && *cadeia <= 'z')
+        {
+            contagem++;
+        }
+        cadeia++;
+    }
+
+    return contagem;
+}
+void metodo0719(const char *arquivoEntrada, const char *arquivoSaida)
+{
+    FILE *entrada = fopen(arquivoEntrada, "rt");
+
+    FILE *saida = fopen(arquivoSaida, "wt");
+
+    char linha[200];
+    while (fgets(linha, sizeof(linha), entrada) != NULL)
+    {
+        int maiusculas = contar(linha);
+        fprintf(saida, "Cadeia: %sQuantidade de maiúsculas: %d\n\n", linha, maiusculas);
+    }
+
+    fclose(entrada);
+    fclose(saida);
 }
 void method_0719()
 {
+    metodo0719("0719.txt", "RESULTADO09.TXT");
+    IO_pause("Aperte ENTER para continuar");
+}
+
+int method0720(const char *cadeia)
+{
+    int contagem = 0;
+    while (*cadeia != '\0')
+    {
+        if (*cadeia >= '5' && *cadeia <= '9')
+        {
+            contagem++;
+        }
+        cadeia++;
+    }
+    return contagem;
 }
 void method_0720()
 {
+    int x = 0;
+    printf("Digite o tamanho da cadeia: \n");
+    scanf("%d", &x);
+    getchar();
+
+    char linha[x];
+    printf("Digite uma string: \n");
+    fgets(linha, sizeof(linha), stdin);
+
+    printf("%s", linha);
+
+    FILE *arquivo = fopen("RESULTADO0720.TXT", "wt");
+    if (arquivo == NULL)
+    {
+        printf("Erro ao abrir o arquivo.\n");
+        return;
+    }
+    int maior = method0720(linha);
+    printf("%d", maior);
+    fprintf(arquivo, "Cadeia: %sQuantidade de digitos maiores ou iguais a 5: %d\n\n", linha, maior);
+
+    fclose(arquivo);
+
+    IO_pause("Aperte ENTER para continuar");
 }
-void method_0721()
+void method0721(int numero, FILE *arquivo)
 {
+    fprintf(arquivo, "Divisores de %d em ordem decrescente:\n", numero);
+
+    for (int i = numero; i > 0; i--)
+    {
+        if (numero % i == 0)
+        {
+            fprintf(arquivo, "%d\n", i);
+        }
+    }
 }
-void method_0722()
+
+void method_07E1()
 {
+    int x;
+    printf("Digite um valor inteiro: \n");
+    scanf("%d", &x);
+    getchar();
+
+    FILE *arquivo = fopen("RESULTADO0721.txt", "wt");
+    if (arquivo == NULL)
+    {
+        printf("Erro ao abrir o arquivo.\n");
+        return;
+    }
+
+    method0721(x, arquivo);
+
+    fclose(arquivo);
+
+    printf("Divisores gravados em '%s'.\n", arquivo);
+}
+int method0722(FILE *arquivo)
+{
+    int contador = 0;
+    char palavra[50];
+    while (fgets(palavra, sizeof(palavra), arquivo) != NULL)
+    {
+        if (palavra[0] == 'd' || palavra[0] == 'D')
+        {
+            contador++;
+        }
+    }
+    return contador;
+}
+void method_07E2()
+{
+    FILE *arquivo = fopen("07E2.txt", "rt");
+    if (arquivo == NULL)
+    {
+        printf("Erro ao abrir o arquivo.\n");
+        return;
+    }
+    int palavrasComD = method0722(arquivo);
+    fclose(arquivo);
+
+    printf("\nQuantidade de palavras que começam com 'd' ou 'D' no arquivo: %d\n", palavrasComD);
+    printf("\n");
+
+    IO_pause("Aperte ENTER para continuar");
 }
 int main()
 {
@@ -251,10 +461,10 @@ int main()
             method_0720();
             break;
         case 11:
-            method_0721();
+            method_07E1();
             break;
         case 12:
-            method_0722();
+            method_07E2();
             break;
         default:
             IO_pause(IO_concat("Valor diferente das opcoes [0,1,2,3,4,5,6,7,8,9,10] (",
