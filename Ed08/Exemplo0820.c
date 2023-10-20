@@ -436,20 +436,133 @@ void method_0808()
     IO_pause("Aperte ENTER para continuar");
 }
 
+void method0809(const char *filename, int procurado, int posicaoInicial)
+{
+    int i = 0;
+    int contador_linhas = 0;
+    char caractere;
+    int posicao = 0;
+    bool existe = 0;
+    bool j = 1;
+
+    FILE *arquivo = fopen(filename, "rt");
+    if (arquivo == NULL)
+    {
+        printf("Erro ao abrir o arquivo.\n");
+        return;
+    }
+
+    while ((caractere = fgetc(arquivo)) != EOF)
+    {
+        if (caractere == '\n')
+        {
+            contador_linhas++;
+        }
+    }
+    rewind(arquivo);
+    int array[contador_linhas];
+    for (int i = posicaoInicial; i < contador_linhas && existe == false; i++)
+    {
+        fscanf(arquivo, "%d ", &array[i]);
+        if (array[i] == procurado)
+        {
+            posicao = i + 1;
+            existe = true;
+        }
+    }
+
+    if (existe == true)
+    {
+        printf("\nO %d foi encontrado na linha: %d\n", procurado, posicao);
+    }
+    else
+    {
+        printf("\nNao ha registros com esse valor!\n");
+    }
+}
 void method_0809()
 {
+    int procurado;
+    int posicaoInicial;
+    printf("\nDigite um valor a ser procurado no vetor:\n");
+    scanf("%d", &procurado);
+    getchar();
+    printf("Digite por qual posicao deve comecar a procura:\n");
+    scanf("%d", &posicaoInicial);
+    getchar();
+
+    method0809("DADOS.TXT", procurado, posicaoInicial);
+
+    IO_pause("Aperte ENTER para continuar");
 }
 
+void method0810(const char *filename, int procurado, int posicaoInicial)
+{
+    int contador_linhas = 0;
+    char caractere;
+    int vezes = 0;
+    bool existe = false;
+
+    FILE *arquivo = fopen(filename, "rt");
+    if (arquivo == NULL)
+    {
+        printf("Erro ao abrir o arquivo.\n");
+        return;
+    }
+
+    while ((caractere = fgetc(arquivo)) != EOF)
+    {
+        if (caractere == '\n')
+        {
+            contador_linhas++;
+        }
+    }
+    rewind(arquivo);
+
+    int array[contador_linhas];
+    for (int i = posicaoInicial; i < contador_linhas; i++)
+    {
+        fscanf(arquivo, "%d ", &array[i]);
+        if (array[i] == procurado)
+        {
+            vezes++;
+            existe = true;
+        }
+    }
+
+    if (existe)
+    {
+        printf("\nO %d foi encontrado nas seguintes linhas:", procurado);
+        for (int i = posicaoInicial; i < contador_linhas; i++)
+        {
+            if (array[i] == procurado)
+            {
+                printf(" %d", i + 1); 
+            }
+        }
+        printf("\nTotal de vezes: %dx\n", vezes);
+    }
+    else
+    {
+        printf("\nNão há registros com esse valor!\n");
+    }
+
+    fclose(arquivo);
+}
 void method_0810()
 {
-}
+    int procurado;
+    int posicaoInicial;
+    printf("\nDigite um valor a ser procurado no vetor:\n");
+    scanf("%d", &procurado);
+    getchar();
+    printf("Digite por qual posicao deve comecar a procura:\n");
+    scanf("%d", &posicaoInicial);
+    getchar();
 
-void method_0811()
-{
-}
+    method0810("DADOS.TXT", procurado, posicaoInicial);
 
-void method_0812()
-{
+    IO_pause("Aperte ENTER para continuar");
 }
 
 int main()
@@ -474,50 +587,43 @@ int main()
         IO_println("8 - Method_08");
         IO_println("9 - Method_09");
         IO_println("10 - Method_10");
-        IO_println("11 - Method_11");
-        IO_println("12 - Method_12");
+
         x = IO_readint("Entrar com uma opcao: ");
         // testar valor
         switch (x)
         {
-        case 1:
+        case 0:
             method_00();
             break;
-        case 2:
+        case 1:
             method_0801();
             break;
-        case 3:
+        case 2:
             method_0802();
             break;
-        case 4:
+        case 3:
             method_0803();
             break;
-        case 5:
+        case 4:
             method_0804();
             break;
-        case 6:
+        case 5:
             method_0805();
             break;
-        case 7:
+        case 6:
             method_0806();
             break;
-        case 8:
+        case 7:
             method_0807();
             break;
-        case 9:
+        case 8:
             method_0808();
             break;
-        case 10:
+        case 9:
             method_0809();
             break;
-        case 11:
+        case 10:
             method_0810();
-            break;
-        case 12:
-            method_0811();
-            break;
-        case 13:
-            method_0812();
             break;
         default:
             IO_pause(IO_concat("Valor diferente das opcoes [0,1,2,3,4,5,6,7,8,9,10] (",
