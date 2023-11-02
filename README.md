@@ -35,8 +35,8 @@ Este repositório é destinado principalmente para fins educacionais. Os exercí
 
 ## Autor
 
-[Guilherme Lana]
-[contato.guilhermelana@gmail.com]
-[https://lan4z.github.io/my/]
+- **Nome**: Guilherme Lana
+- **E-mail**: contato.guilhermelana@gmail.com
+- **Site/Perfil**: [https://lan4z.github.io/my/](https://lan4z.github.io/my/)
 
 Se você tiver alguma dúvida ou precisar de esclarecimentos adicionais, sinta-se à vontade para entrar em contato.
