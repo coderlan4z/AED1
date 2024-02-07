@@ -9,7 +9,6 @@ O repositório está organizado da seguinte forma:
 - **Exercicios**: Este diretório contém uma variedade de exercícios resolvidos relacionados ao curso.
 - **Projetos**: Aqui você encontrará projetos mais extensos e desafios que exploram conceitos mais avançados.
 - **Exemplos**: Exemplos simples e ilustrativos de estruturas de dados e algoritmos.
-- **Notas de Aula**: Se houver anotações de aula, você pode encontrá-las aqui.
 
 ## Linguagens Utilizadas
 
@@ -37,6 +36,6 @@ Este repositório é destinado principalmente para fins educacionais. Os exercí
 
 - **Nome**: Guilherme Lana
 - **E-mail**: contato.guilhermelana@gmail.com
-- **Site/Perfil**: [https://lan4z.github.io/my/](https://lan4z.github.io/my/)
+- **Site/Perfil**: [https:coderlan4z.pro]
 
 Se você tiver alguma dúvida ou precisar de esclarecimentos adicionais, sinta-se à vontade para entrar em contato.
