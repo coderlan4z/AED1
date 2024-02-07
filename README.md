@@ -36,6 +36,6 @@ Este repositório é destinado principalmente para fins educacionais. Os exercí
 
 - **Nome**: Guilherme Lana
 - **E-mail**: contato.guilhermelana@gmail.com
-- **Site/Perfil**: [https:coderlan4z.pro](coderlan4z.pro)
+- **Site/Perfil**: [coderlan4z.pro](https://coderlan4z.pro)
 
 Se você tiver alguma dúvida ou precisar de esclarecimentos adicionais, sinta-se à vontade para entrar em contato.
